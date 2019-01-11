@@ -2,7 +2,7 @@
   "name": "voting-rights-initiative",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/bremlinger/voting-rights-initiative",
+  "homepage": "https://bremlinger.github.io/voting-rights-initiative/",
   "dependencies": {
     "d3-scale": "^2.1.2",
     "gh-pages": "^2.0.1",
