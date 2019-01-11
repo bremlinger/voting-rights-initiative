@@ -51,7 +51,7 @@ export class ChoroplethMap extends Component {
   render() {
     return (
       <div style={wrapperStyles}>
-      <h1 align="center">Click on a state to see VRI results:</h1>
+      <h1 align="center">Click on a state to see VRI research results:</h1>
         <ComposableMap
           projection = 'albersUsa'
           projectionConfig={{
