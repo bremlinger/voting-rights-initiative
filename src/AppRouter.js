@@ -10,12 +10,13 @@ const Users = () => <h2>Users</h2>;
 
 const AppRouter = () => (
   <Router>
-    <div>
-      <nav>
-        <ul>
-          <li>
+    <div class="containter-fluid">
+      <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">
             <Link to="/">Home</Link>
-          </li>
+        </a>
+        <ul class="nav navbar-nav navbar-right">
           <li>
             <Link to="/about/">About</Link>
           </li>
@@ -23,6 +24,7 @@ const AppRouter = () => (
             <Link to="/users/">Users</Link>
           </li>
         </ul>
+      </div>
       </nav>
 
       <Route path="/" exact component={MapPage} />
