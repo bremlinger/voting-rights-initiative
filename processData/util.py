@@ -1,5 +1,6 @@
 import csv
 import json
+import operator
 
 
 '''
@@ -120,6 +121,10 @@ def readData(datafile):
         caseInfo = caseInfo[1:]
     return caseInfo
 
+def sortCaseList(caseInfo):
+    #sort the case list here, because it's a pain to do in javascript
+    return sorted(caseInfo, key=lambda x: (x['state'],x['year']))
+
 def aggregateData(caseList):
     #different aggregations of the data to include in the javascript
     
@@ -142,6 +147,7 @@ def aggregateData(caseList):
 
 def csvToJSON(datafile, jsonFile):
     caseList = readData(datafile)
+    caseList = sortCaseList(caseList)
     outData = aggregateData(caseList)
 
     openJSONFile = open(jsonFile,'w')
