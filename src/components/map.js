@@ -8,10 +8,9 @@ import {
 import { scaleLinear } from "d3-scale"
 import USA from "../data/states.json"
 import vriData from "../data/vriData.json"
-import { stateCaseDetails } from "./stateCaseDetails";
-import { StateList } from "./statelist";
 
 
+//use this so states that have no data still get a value for colorizing
 const stateData = (stateID) => {
   if (stateID in vriData) {
     return vriData[stateID]['numCases']
@@ -34,18 +33,14 @@ export class ChoroplethMap extends Component {
 
   constructor(props){
     super(props);
-    this.state = {stateCaseDetails: stateCaseDetails};
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {stateCaseDetails: props.stateCaseDetails};
+    this.handleClick = props.handleClick;
+    this.onClick = this.onClick.bind(this);
   }
 
-  handleClick(geography, evt) {
-    let stateID = geography.properties.id
-    console.log(this.state.stateCaseDetails[stateID]);
-    if (this.state.stateCaseDetails[stateID].numCases) {
-      let selectedState = Object.assign(this.state.stateCaseDetails[stateID])
-      if (selectedState.show ? selectedState.show = false : selectedState.show = true);
-      this.setState({selectedState})
-    }
+  onClick(geography, evt) {
+    //pass the two letter abbreviation of the clicked-on state to MapPage
+    this.handleClick(geography.properties.id)
   }
 
   render() {
@@ -72,7 +67,7 @@ export class ChoroplethMap extends Component {
                   key={ i }
                   geography={ geography }
                   projection={ projection }
-                  onClick={ this.handleClick }
+                  onClick={ this.onClick }
                   style={{
                     default: {
                       fill: popScale(stateData(geography.properties.id)),
@@ -98,7 +93,6 @@ export class ChoroplethMap extends Component {
             </Geographies>
           </ZoomableGroup>
         </ComposableMap>
-        <StateList stateCaseDetails={this.state.stateCaseDetails}/>
       </div>
     )
   }

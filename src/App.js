@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { ChoroplethMap } from './components/map';
+import { MapPage } from './components/mapPage';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-      <ChoroplethMap />
+      <MapPage />
       </div>
     );
   }

@@ -21,7 +21,7 @@ export class StateList extends React.Component {
     let elements = this.statesThatShouldDisplay()
     return (<div>
     {elements.map(x => {
-      if (x.show) {return x.element}
+      if (x.show) {return x.element} else {return null}
       })}
     </div>) 
   }

@@ -1,64 +1,75 @@
 import React from 'react';
 import vriData from '../data/vriData.json';
 
+const setDefaults = (stateObject) =>{;
+  //hide by default
+  stateObject['show'] = false;
+
+  let fullname = stateObject.fullname;
+  let elementID = stateObject.name + "_info";
+
+  if (stateObject.name in vriData) {
+    let numCases = vriData[stateObject.name]['numCases'];
+    stateObject.numCases = numCases
+    stateObject.element = <h1 key={elementID}>{fullname} had {numCases} VRA suits.</h1>
+    } else {
+    stateObject.element = <h1 key={elementID}>{fullname} had no VRA suits.</h1>
+}}
+
 //set default values
 export let stateCaseDetails = {
-    AL : {show: false,},
-    AK : {show: false,},
-    AZ : {show: false,},
-    AR : {show: false,},
-    CA : {show: false,},
-    CO : {show: false,},
-    CT : {show: false,},
-    DE : {show: false,},
-    FL : {show: false,},
-    GA : {show: false,},
-    HI : {show: false,},
-    ID : {show: false,},
-    IL : {show: false,},
-    IN : {show: false,},
-    IA : {show: false,},
-    KS : {show: false,},
-    KY : {show: false,},
-    LA : {show: false,},
-    ME : {show: false,},
-    MD : {show: false,},
-    MA : {show: false,},
-    MI : {show: false,},
-    MN : {show: false,},
-    MS : {show: false,},
-    MO : {show: false,},
-    MT : {show: false,},
-    NE : {show: false,},
-    NV : {show: false,},
-    NH : {show: false,},
-    NJ : {show: false,},
-    NM : {show: false,},
-    NY : {show: false,},
-    NC : {show: false,},
-    ND : {show: false,},
-    OH : {show: false,},
-    OK : {show: false,},
-    OR : {show: false,},
-    PA : {show: false,},
-    RH : {show: false,},
-    SC : {show: false,},
-    SD : {show: false,},
-    TN : {show: false,},
-    TX : {show: false,},
-    UT : {show: false,},
-    VT : {show: false,},
-    VA : {show: false,},
-    WA : {show: false,},
-    WV : {show: false,},
-    WI : {show: false,},
-    WY : {show: false,},
+    AL : {name: 'AL', fullname : 'Alabama'},
+    AK : {name: 'AK', fullname : 'Alaska'},
+    AZ : {name: 'AZ', fullname : 'Arizona'},
+    AR : {name: 'AR', fullname : 'Arkansas'},
+    CA : {name: 'CA', fullname : 'California'},
+    CO : {name: 'CO', fullname : 'Colorado'},
+    CT : {name: 'CT', fullname : 'Connecticut'},
+    DE : {name: 'DE', fullname : 'Delaware'},
+    FL : {name: 'FL', fullname : 'Florida'},
+    GA : {name: 'GA', fullname : 'Georgia'},
+    HI : {name: 'HI', fullname : 'Hawaii'},
+    ID : {name: 'ID', fullname : 'Idaho'},
+    IL : {name: 'IL', fullname : 'Illinois'},
+    IN : {name: 'IN', fullname : 'Indiana'},
+    IA : {name: 'IA', fullname : 'Iowa'},
+    KS : {name: 'KS', fullname : 'Kansas'},
+    KY : {name: 'KY', fullname : 'Kentucky'},
+    LA : {name: 'LA', fullname : 'Louisiana'},
+    ME : {name: 'ME', fullname : 'Maine'},
+    MD : {name: 'MD', fullname : 'Maryland'},
+    MA : {name: 'MA', fullname : 'Massachusetts'},
+    MI : {name: 'MI', fullname : 'Michigan'},
+    MN : {name: 'MN', fullname : 'Minnesota'},
+    MS : {name: 'MS', fullname : 'Mississippi'},
+    MO : {name: 'MO', fullname : 'Missouri'},
+    MT : {name: 'MT', fullname : 'Montana'},
+    NE : {name: 'NE', fullname : 'Nebraska'},
+    NV : {name: 'NV', fullname : 'Nevada'},
+    NH : {name: 'NH', fullname : 'New Hampshire'},
+    NJ : {name: 'NJ', fullname : 'New Jersey'},
+    NM : {name: 'NM', fullname : 'New Mexico'},
+    NY : {name: 'NY', fullname : 'New York'},
+    NC : {name: 'NC', fullname : 'North Carolina'},
+    ND : {name: 'ND', fullname : 'North Dakota'},
+    OH : {name: 'OH', fullname : 'Ohio'},
+    OK : {name: 'OK', fullname : 'Oklahoma'},
+    OR : {name: 'OR', fullname : 'Oregon'},
+    PA : {name: 'PA', fullname : 'Pennsylvania'},
+    RI : {name: 'RI', fullname : 'Rhode Island'},
+    SC : {name: 'SC', fullname : 'South Carolina'},
+    SD : {name: 'SD', fullname : 'South Dakota'},
+    TN : {name: 'TN', fullname : 'Tennessee'},
+    TX : {name: 'TX', fullname : 'Texas'},
+    UT : {name: 'UT', fullname : 'Utah'},
+    VT : {name: 'VT', fullname : 'Vermont'},
+    VA : {name: 'VA', fullname : 'Virginia'},
+    WA : {name: 'WA', fullname : 'Washington'},
+    WV : {name: 'WV', fullname : 'West Virginia'},
+    WI : {name: 'WI', fullname : 'Wisconsin'},
+    WY : {name: 'WY', fullname : 'Wyoming'},
     };
 
 for (let state in stateCaseDetails) {
-  if (state in vriData) {
-    let numCases = vriData[state]['numCases']
-    stateCaseDetails[state].numCases = numCases
-    stateCaseDetails[state].element = <h1>{state} had {numCases} VRA suits.</h1>
-    }
+  setDefaults(stateCaseDetails[state])
   };
