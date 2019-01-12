@@ -12,8 +12,7 @@ const aboutLink = process.env.PUBLIC_URL + "/about/"
 
 const AppRouter = () => (
   <Router>
-    <div className="containter-fluid">
-    <div class="row" style={{paddingLeft:"15px",paddingRight:"15px"}}>
+    <div className="containter-fluid" style={{paddingLeft:"15px",paddingRight:"15px"}}>
     <Navbar fluid>
       <Navbar.Header>
         <Navbar.Brand>
@@ -29,7 +28,6 @@ const AppRouter = () => (
         </NavItem>
       </Nav>
       </Navbar>
-      </div>
 
 
       <Route path={homeLink} exact component={MapPage} />
