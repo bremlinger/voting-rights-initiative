@@ -27,7 +27,7 @@ const wrapperStyles = {
 }
 
 const popScale = scaleLinear()
-  .domain([0,3,15])
+  .domain([0,5,20])
   .range(["#CFD8DC","#607D8B","#37474F"])
 
 export class ChoroplethMap extends Component {
