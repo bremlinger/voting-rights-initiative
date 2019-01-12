@@ -19,6 +19,8 @@ const alphabetizeCases = (case1, case2) => {
 
 cases.sort(alphabetizeCases)
 
+//correct link to download data, sub in later
+//      Download the full dataset <Link to="../data/data.csv" download target="_self" >here</Link>.</p>
 
 export class AllCasesTable extends React.Component {
 
@@ -32,7 +34,7 @@ export class AllCasesTable extends React.Component {
       <Router>
       <div className='container-fluid' id='allCasesTable'>
       <p style={{textAlign:"center"}}>
-      Download the full dataset <Link to="../data/data.csv" download target="_self" >here</Link>.</p>
+      Download the full dataset <a href="">here</a>.</p>
       <Table striped bordered condensed hover>
       <thead>
         <tr>

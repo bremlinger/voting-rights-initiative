@@ -27,7 +27,7 @@ const wrapperStyles = {
 }
 
 const popScale = scaleLinear()
-  .domain([0,3,5])
+  .domain([0,3,15])
   .range(["#CFD8DC","#607D8B","#37474F"])
 
 export class ChoroplethMap extends Component {
@@ -73,7 +73,7 @@ export class ChoroplethMap extends Component {
                   style={{
                     default: {
                       fill: popScale(stateData(geography.properties.id)),
-                      stroke: "#607D8B",
+                      stroke: "#505050",
                       strokeWidth: 0.75,
                       outline: "none",
                     },
