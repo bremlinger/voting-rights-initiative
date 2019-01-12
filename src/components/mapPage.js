@@ -14,6 +14,10 @@ export class MapPage extends React.Component {
   }
 
   handleClick(stateID) {
+    //collapse any currently open state
+    for (let s in this.state.stateCaseDetails) {
+      this.state.stateCaseDetails[s].show = false}
+    //find the state that was clicked on, and expand its HTML element
     let selectedState = Object.assign(this.state.stateCaseDetails[stateID])
     if (selectedState.show ? selectedState.show = false : selectedState.show = true);
     this.setState({selectedState})

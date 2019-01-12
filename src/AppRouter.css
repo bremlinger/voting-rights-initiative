@@ -1,5 +1,10 @@
-#MapPage {padding-top:70px;}
+#stateElement h1 {
+text-align: center;
+}
 
+#about {
+text-align: center;
+}
 
 /*
 Turn the navbar Michigan blue (have to change navbar class in AppRouter)

@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://bremlinger.github.io/voting-rights-initiative/",
   "dependencies": {
+    "css-loader": "^2.1.0",
     "d3-scale": "^2.1.2",
     "gh-pages": "^2.0.1",
     "react": "^16.7.0",

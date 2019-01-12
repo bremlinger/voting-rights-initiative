@@ -1,5 +1,6 @@
 import React from 'react';
 import vriData from '../data/vriData.json';
+import { Table } from 'react-bootstrap';
 
 const mapData = vriData.aggregateForMap;
 
@@ -18,31 +19,45 @@ export class StateElement extends React.Component {
       } else {
         this.state.hasCases = false;
       }
-
-    this.createHTML = this.createHTML.bind(this);
   }
 
-  createHTML(){
-    if (this.state.hasCases) {
-      return (
-      <div>
-      <h1>{this.state.fullname} had {this.state.numCases} VRA suits.</h1>
-        <ul>
-        {this.state.cases.map((x,i) => {
-          let key = this.state.name + i;
-          let text = x.caseTitle + ' (' + x.citation + ')';
-          return <li key={key} align="left">{text}</li>
-        })}
-        </ul>
-      </div>
-      )
-    } else {
-      return <h1>{this.state.fullname} had no VRA suits.</h1>
-    }
+  pluralize(numCases){
+    return (numCases > 1 ? 's.' :'.') 
   }
 
   render() {
-    return this.createHTML()
+    if (this.state.hasCases) {
+      return (
+      <div id="stateElement" className="container-fluid">
+      <h1>{this.state.fullname} had {this.state.numCases} VRA suit{this.pluralize(this.state.numCases)}</h1>
+        <Table striped bordered condensed hover>
+          <thead>
+            <tr> 
+              <th width='20%'>Case Name</th>
+              <th>Citation</th>
+              <th>Success</th>
+              <th>Finding of Intentional Discrimination?</th>
+            </tr>
+          </thead>
+          <tbody>
+        {this.state.cases.map((x,i) => {
+          let key = this.state.name + i;
+          return (<tr key={key}>
+                   <td width='40%'>{x.caseTitle}</td>
+                   <td>{x.citation}</td>
+                   <td>{x.success}</td>
+                   <td>{x.intent}</td>
+                 </tr>)
+        })}
+          </tbody>
+        </Table>
+      </div>
+      )
+    } else {
+      return (
+        <div id="stateElement" className="container-fluid">
+          <h1>{this.state.fullname} had no VRA suits.</h1>
+        </div>
+    )}
   }
-
-}
+  }
