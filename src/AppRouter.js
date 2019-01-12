@@ -6,7 +6,9 @@ import { MapPage } from './components/mapPage';
 import { AllCasesTable } from './components/allCasesTable';
 import { About } from './components/about';
 
-
+const homeLink = process.env.PUBLIC_URL + "/"
+const dataLink = process.env.PUBLIC_URL + "/data/"
+const aboutLink = process.env.PUBLIC_URL + "/about/"
 
 const AppRouter = () => (
   <Router>
@@ -15,24 +17,24 @@ const AppRouter = () => (
     <Navbar fluid>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">Home</Link>
+          <Link to={homeLink}>Home</Link>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav pullRight>
         <NavItem eventKey={1}>
-          <Link to="/data/">The Data</Link>
+          <Link to={dataLink}>The Data</Link>
         </NavItem>
         <NavItem eventKey={2}>
-          <Link to="/about/">About</Link>
+          <Link to={aboutLink}>About</Link>
         </NavItem>
       </Nav>
       </Navbar>
       </div>
 
 
-      <Route path="/" exact component={MapPage} />
-      <Route path="/data/" component={AllCasesTable} />
-      <Route path="/about/" component={About} />
+      <Route path={homeLink} exact component={MapPage} />
+      <Route path={dataLink} component={AllCasesTable} />
+      <Route path={aboutLink} component={About} />
     </div>
   </Router>
 );
