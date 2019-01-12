@@ -56,7 +56,7 @@ export class AllCasesTable extends React.Component {
               <td>{c.state}</td>
               <td>{c.year}</td>
               <td style={{textAlign:"center"}}>{c.success}</td>
-              <td style={{textAlign:"center"}}>{this.blanksToUnclear(c.intent)}</td>
+              <td style={{textAlign:"center"}}>{c.intent}</td>
             </tr>)})
         }
       </tbody>
