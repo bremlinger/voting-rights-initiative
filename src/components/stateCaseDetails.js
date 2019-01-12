@@ -1,10 +1,5 @@
 import React from 'react';
 import { StateElement } from './stateElement';
-import vriData from '../data/vriData.json';
-
-//pull the map-specific json
-const mapData = vriData.aggregateForMap;
-console.log(mapData)
 
 
 //set default values
