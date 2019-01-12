@@ -9,11 +9,13 @@ import { scaleLinear } from "d3-scale"
 import USA from "../data/states.json"
 import vriData from "../data/vriData.json"
 
+const mapData = vriData.aggregateForMap;
+
 
 //use this so states that have no data still get a value for colorizing
 const stateData = (stateID) => {
-  if (stateID in vriData) {
-    return vriData[stateID]['numCases']
+  if (stateID in mapData) {
+    return mapData[stateID]['numCases']
     } else {
     return 0 }
 }

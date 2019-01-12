@@ -1,20 +1,11 @@
 import React from 'react';
+import { StateElement } from './stateElement';
 import vriData from '../data/vriData.json';
 
-const setDefaults = (stateObject) =>{;
-  //hide by default
-  stateObject['show'] = false;
+//pull the map-specific json
+const mapData = vriData.aggregateForMap;
+console.log(mapData)
 
-  let fullname = stateObject.fullname;
-  let elementID = stateObject.name + "_info";
-
-  if (stateObject.name in vriData) {
-    let numCases = vriData[stateObject.name]['numCases'];
-    stateObject.numCases = numCases
-    stateObject.element = <h1 key={elementID}>{fullname} had {numCases} VRA suits.</h1>
-    } else {
-    stateObject.element = <h1 key={elementID}>{fullname} had no VRA suits.</h1>
-}}
 
 //set default values
 export let stateCaseDetails = {
@@ -71,5 +62,12 @@ export let stateCaseDetails = {
     };
 
 for (let state in stateCaseDetails) {
-  setDefaults(stateCaseDetails[state])
+  let stateObject = stateCaseDetails[state];
+  let elementID = stateObject.name + "_info";
+
+  //hide by default
+  stateObject['show'] = false;
+
+  //create elements using StateElement
+  stateObject.element = <StateElement key={elementID} obj={stateObject} />
   };
